@@ -60,15 +60,12 @@ let confirmarInscripcion=(informacionEstudianteInscrito)=>{
     let datos=`${informacionEstudianteInscrito.nombre},${informacionEstudianteInscrito.cedula},${informacionEstudianteInscrito.id}`;
     texto='el estudiante '+ datos[0] + ' con cédula '+ datos[1] +' se ha inscrito en el curso '+ datos[2];
     // texto='el estudiante '+ opciones.id + ' con cédula '+ opciones.cedula +' se ha inscrito en el curso '+ opciones.id;
-    fs.writeFile('inscripcion.txt',texto,(err)=>{
-        if (err) throw (console.log('ha habido un error en la inscrpción, intente de nuevo'))
-        console.log('Actualice la página se desea ver la confirmación de su inscripción')
-        app.get('/', function (req, res) {
-            res.send(texto)
-        })
-        app.listen(3000)
-        console.log('Se ha inscrito exitosamente!')
+    console.log('Se ha inscrito exitosamente!')
+    console.log('Actualice la página se desea ver la confirmación de su inscripción')
+    app.get('/', function (req, res) {
+        res.send(texto)
     })
+    app.listen(3000)
 }
 
 
